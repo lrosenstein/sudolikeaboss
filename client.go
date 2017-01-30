@@ -24,6 +24,9 @@ func LoadConfiguration() *onepass.Configuration {
 	if defaultHost == "" {
 		defaultHost = DEFAULT_HOST
 	}
+	if len(os.Args) > 1 {
+		defaultHost = os.Args[1]
+	}
 
 	websocketURI := os.Getenv("SUDOLIKEABOSS_WEBSOCKET_URI")
 	if websocketURI == "" {
